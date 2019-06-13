@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="{{ app()->getLocale() }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>{{ config('app.name', '缇苏') }} - 后台</title>
+    <link rel="stylesheet" href="{{ asset('vendor/ml-admin/layui/css/layui.css') }}">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1011971_l9crkhrpepm.css">
+    <script src="{{asset('js/common/tools.js')}}"></script>
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-body" style="left: 0;top: 0;">
+        <!-- 内容主体区域 -->
+        <div>
+            {{--<div class="content-header" style="margin-bottom: 5px">--}}
+                {{--@includeWhen($breadcrumb ?? true, 'backend.layouts._breadcrumb')--}}
+            {{--</div>--}}
+            @include('backend.layouts._error')
+            @yield('content')
+        </div>
+    </div>
+</div>
+<!-- Scripts -->
+<script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('vendor/ml-admin/layui/layui.all.js') }}"></script>
+{{--<script src="{{ asset('vendor/ml-admin/jQuery/jquery-2.1.4.min.js') }}"></script>--}}
+<script>
+    //文档：https://www.layui.com/doc/base/infrastructure.html
+    //JavaScript代码区域
+    layui.use('element', function () {
+        var element = layui.element;
+        // console.log('出错了')
+    });
+    // layui.hint().error('出错啦121');
+
+</script>
+
+{{--在此处加载scripts--}}
+@stack('scripts')
+
+
+</body>
+</html>
+
